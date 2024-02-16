@@ -1,0 +1,38 @@
+# Proxy Log Analysis
+
+The Proxy acts as a bridge between the endpoint and the internet, commonly used by organizations for purposes like enhancing internet speed, centralized control, and improving security levels. A simple schematic drawing of the Proxy structure is provided below, illustrating that requests from the client first reach the Proxy Server and then proceed to the Internet. Proxies can operate in two main types:
+
+- Transparent Proxy: The target server can see the real source IP address.
+- Anonymous Proxy: The target server cannot see the real source IP address; it sees the IP address of the proxy as the source IP address.
+
+Examples of well-known proxy solutions in the market include Cisco Umbrella, Forcepoint Web Security Gateway, Check Point URL Filtering, and Fortinet Secure Web Gateway.
+
+## Proxy Working Structure
+
+The proxy working structure controls the access of systems (server, client, etc.) to services such as HTTP, HTTPS, FTP based on determined policies, and enacts actions such as block or pass. While these policies may vary, they typically query the URL/domain to be accessed from the category database. If the category is deemed risky, a block action is applied; otherwise, a pass action is applied. Some systems may have an implicit deny applied to all networks other than those needed for access.
+
+### Sample Proxy Log
+
+```markdown
+date=2022-05-21
+time=16:15:44
+type="utm"
+subtype="webfilter"
+eventtype="urlfilter"
+level="warning"
+srcip=192.168.209.142
+srcport=34280
+srcintfrole="lan"
+dstip=54.20.21.189
+dstport=443
+dstintfrole="wan"
+service="HTTPS"
+hostname="android.prod.cloud.netflix.com"
+profile="Wifi-Guest"
+action="blocked"
+url="https://android.prod.cloud.netflix.com/"
+sentbyte=517
+rcvdbyte=0
+direction="outgoing"
+urlsource="Local URLfilter Block"
+msg="URL was blocked because it is in the URL filter list"
