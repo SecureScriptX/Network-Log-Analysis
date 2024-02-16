@@ -1,0 +1,29 @@
+# DNS Log Analysis
+
+DNS (Domain Name System) is a fundamental component of the internet, responsible for domain-to-IP resolution. SOC analysts rely on DNS logs to investigate incidents and gain insights into system activities. When analyzing DNS logs, consider the following aspects:
+
+- Identify unauthorized domain requests and assess their risk.
+- Check for attempts to access known services during sensitive situations (e.g., data leaks).
+- Investigate systems querying domains from Threat Intelligence resources.
+- Examine DNS Over TLS (DOT) or DNS over HTTPS (DOH) service access.
+
+## DNS Server Records
+
+DNS Server Records represent audit events on the server hosting DNS records. These events can be found in "Application and Services Logs -> Microsoft -> Windows -> DNS-Server\Audit" on Windows servers. Examples include adding, deleting, and editing DNS records.
+
+## DNS Queries
+
+DNS query logs can be challenging to collect and analyze, as servers do not keep them by default. Applications like Microsoft DNS, Bind DNS, and Dnsmasq record DNS queries they receive. IOCs (Indicators of Compromise) in DNS logs are crucial for incident analysis.
+
+Example DNS Query Log:
+json
+{
+  "timestamp": 1591367999.306059,
+  "source_ip": "192.168.4.76",
+  "source_port": 36844,
+  "destination_ip": "192.168.4.1",
+  "destination_port": 53,
+  "protocol": "udp",
+  "query": "testmyids.com",
+  "qtype_name": "A"
+}
