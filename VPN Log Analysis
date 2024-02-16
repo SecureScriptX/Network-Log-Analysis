@@ -1,0 +1,29 @@
+# VPN Log Analysis
+
+Virtual Private Network (VPN) technology enables remote access to local networks, making it a crucial tool for organizations to connect to their internal systems and access restricted sites. VPN logs play a pivotal role in the daily operations of Security Operations Center (SOC) Analysts, given the significance of VPN as an entry point for potential attackers. Essential information found in VPN logs includes timestamps, source IP addresses, user details, and actions taken, aiding analysts in investigating events and alarms.
+
+## Obtaining VPN Logs
+
+VPNs are typically deployed over an organization's existing Firewall or through dedicated services for VPNs in certain networks. Therefore, VPN logs can be obtained from Firewall devices and other devices specifically providing VPN services.
+
+### Example VPN Log
+
+date=2022-05-21
+time=14:06:38
+devname="FG500"
+devid="FG5HSTF109K"
+eventtime=1653134913959078891
+tz="+0300"
+logid="0101039424"
+type="event"
+subtype="vpn"
+level="information"
+vd="root"
+logdesc="SSL VPN tunnel up"
+action="tunnel-up"
+tunneltype="ssl-web"
+tunnelid=462105151
+remip=13.29.5.4
+user="letsdefend-user"
+reason="login successfully"
+msg="SSL tunnel established"
