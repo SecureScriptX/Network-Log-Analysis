@@ -1,0 +1,17 @@
+# IDS/IPS Log Analysis
+
+The IDS/IPS concept and solutions are technologies developed where rule-based access controls of firewall devices are insufficient in the security world. While the firewall works on a rule basis, IDS/IPS solutions check for anomalies in the packet content, preventing suspicious/malicious packets/requests from reaching the target and protecting systems from potential attacks.
+
+## IDS vs IPS
+- **IPS:** Intrusion Prevention System - Detects and prevents suspicious activities.
+- **IDS:** Intrusion Detection System - Only detects suspicious activities.
+
+IDS and IPS have a signature database, a set of rules designed to detect known attacks. Many firewall manufacturers provide the IDS/IPS module as an additional license. Snort or Suricata are well-known open-source IDS/IPS solutions.
+
+Access the open-source code signatures here (https://rules.emergingthreats.net/open/suricata-5.0/rules/).
+
+IDS/IPS systems are crucial for detecting and preventing network-based or host-based attacks, generating frequent alarms. SOC analysts access IDS/IPS outputs via SIEM or SOAR, where alerts are presented based on rules, correlations, level, category, and occurrence.
+
+## Sample IPS Log
+
+date=2022-05-21 time=14:06:38 devname="FG500" devid="FG5HSTF109K" eventtime=1650585615163261716 tz="+0300" logid="0419016384" type="utm" subtype="ips" eventtype="signature" level="alert" vd="root" severity="high" srcip=12.11.2.4 srccountry="Reserved" dstip=19.66.201.16 dstcountry="United States" srcintf="AOS_LAN" srcintfrole="lan" dstintf="Wan_RL" dstintfrole="lan" sessionid=254830141 action="detected" proto=17 service="DNS" policyid=2 poluuid="6b5c8674-a36a-51ec-bbfd-2250544a9125" policytype="policy" attack="DNS.Server.Label.Buffer.Overflow" srcport=57673 dstport=53 direction="incoming" attackid=37088 profile="default" ref="http://www.fortinet.com/ids/VID37088" incidentserialno=254762092 msg="misc: DNS.Server.Label.Buffer.Overflow" crscore=30 craction=8192 crlevel="high"
